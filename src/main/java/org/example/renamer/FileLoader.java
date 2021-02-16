@@ -15,11 +15,11 @@ public class FileLoader {
             throw new IllegalArgumentException("Invalid path received");
         }
 
-        System.out.println(folder.isDirectory());
-
         for (File temp : folder.listFiles()) {
-            System.out.println(temp.getAbsolutePath());
-            files.add(temp);
+            if (!temp.isDirectory()) {
+                System.out.println(temp.getAbsolutePath());
+                files.add(temp);
+            }
         }
 
         return files;
